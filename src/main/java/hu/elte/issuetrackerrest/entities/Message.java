@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package hu.elte.issuetrackerrest.entities;
 
 import java.time.LocalDateTime;
@@ -19,23 +24,16 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Issue {
 
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     @Column
     @NotNull
-    private String title;
-
-    @Column
-    private String description;
-
-    @Column
-    @NotNull
-    private String place;
-
+    private String text;
+    
     @Column
     @CreationTimestamp
     private LocalDateTime created_at;
@@ -44,7 +42,6 @@ public class Issue {
     @UpdateTimestamp
     private LocalDateTime updated_at;
     
+    @ManyToOne
     
-    @OneToMany(mappedBy)
 }
- 
